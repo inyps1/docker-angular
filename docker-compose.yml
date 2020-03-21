@@ -1,0 +1,20 @@
+version: "3"
+services: 
+    myapp2:
+        build: 
+            context: .
+            dockerfile: Dockerfile.dev
+        ports: 
+            - "8080:4200"
+            - "49153:49153"
+        volumes: 
+            - "/app/node_modules"
+            - ".:/app"
+    # tests:
+    #     image: trion/ng-cli-karma:latest
+    #     ports: 
+    #         - "9876:9876"
+    #     volumes: 
+    #         - "/app/node_modules"
+    #         - ".:/app"
+    #     command: ["npm","run","test"] #overrides docker command
